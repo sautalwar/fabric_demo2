@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -70,6 +70,44 @@
               },
               "queryRef": "CountNonNull(Population-country-1950-1999.LocID)",
               "nativeQueryRef": "Count of LocID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Population-country-1950-1999"
+                        }
+                      },
+                      "Property": "PopMale"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Population-country-1950-1999.PopMale)",
+              "nativeQueryRef": "Sum of PopMale"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Population-country-1950-1999"
+                        }
+                      },
+                      "Property": "PopTotal"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Population-country-1950-1999.PopTotal)",
+              "nativeQueryRef": "Sum of PopTotal"
             }
           ]
         },
@@ -122,5 +160,113 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "91366ab0939887125f67",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Population-country-1950-1999"
+              }
+            },
+            "Property": "AgeGrp"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "52a4234a9ec826a778a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Population-country-1950-1999"
+              }
+            },
+            "Property": "Location"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "668f610271cff410a55e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Population-country-1950-1999"
+                  }
+                },
+                "Property": "LocID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57e0fced3b00aefa40e8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Population-country-1950-1999"
+                  }
+                },
+                "Property": "PopMale"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9f08852ca45d014369b7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Population-country-1950-1999"
+                  }
+                },
+                "Property": "PopTotal"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e02d78fc26ece2a2dbbd",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Population-country-1950-1999"
+                  }
+                },
+                "Property": "PopFemale"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
